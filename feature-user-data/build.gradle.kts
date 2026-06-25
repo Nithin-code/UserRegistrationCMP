@@ -11,7 +11,7 @@ kotlin {
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     android {
-        namespace = "com.nithin.core.network"
+        namespace = "com.nithin.feature.user.data"
         compileSdk {
             version = release(36) {
                 minorApiLevel = 1
@@ -36,7 +36,7 @@ kotlin {
     // A step-by-step guide on how to include this library in an XCode
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
-    val xcfName = "core-networkKit"
+    val xcfName = "feature-user-dataKit"
 
     iosX64 {
         binaries.framework {
@@ -66,13 +66,10 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
-                api(libs.supabase.auth)
-                api(libs.supabase.postgrest)
-                api(libs.supabase.realtime)
-
-                implementation(libs.ktor.client.core)
-                implementation(libs.kotlinx.serialization.json)
                 implementation(projects.coreCommon)
+                implementation(projects.featureUserDomain)
+                implementation(projects.coreNetwork)
+                implementation(libs.kotlinx.serialization.json)
             }
         }
 

@@ -1,9 +1,9 @@
 package com.nithin.feature.user.domain.model
 
 data class User(
-    val id: Long = 0,
+    val id: String,
     val name: String,
     val email: String,
-    val phone: String,
-    val address: String
+    val createdAt: String,
+    val isAdmin: Boolean
 )
