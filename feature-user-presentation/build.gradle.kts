@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.androidLint)
+
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
@@ -27,6 +30,13 @@ kotlin {
             instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
     }
+    js(IR) {
+        browser()
+    }
+
+    wasmJs {
+        browser()
+    }
 
     // For iOS targets, this is also where you should
     // configure native binary output. For more information, see:
@@ -36,12 +46,6 @@ kotlin {
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
     val xcfName = "feature-user-presentationKit"
-
-    iosX64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
 
     iosArm64 {
         binaries.framework {
@@ -65,6 +69,20 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
+                //compose
+                implementation(libs.compose.runtime)
+                implementation(libs.compose.foundation)
+                implementation(libs.compose.material3)
+                implementation(libs.compose.components.resources)
+                implementation(libs.compose.ui)
+                //view-model
+                implementation(libs.androidx.lifecycle.viewmodelCompose)
+                implementation(libs.androidx.lifecycle.runtimeCompose)
+                //modules
+                implementation(projects.featureUserDomain)
+                implementation(projects.coreCommon)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
             }
         }
 

@@ -65,6 +65,14 @@ kotlin {
 
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.serialization.json)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+
+            //other-modules
+            implementation(projects.featureUserDomain)
+            implementation(projects.featureUserData)
+            implementation(projects.featureUserPresentation)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

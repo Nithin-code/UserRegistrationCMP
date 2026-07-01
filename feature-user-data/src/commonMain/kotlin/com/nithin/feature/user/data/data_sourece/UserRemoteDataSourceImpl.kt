@@ -9,15 +9,22 @@ class UserRemoteDataSourceImpl : UserRemoteDataSource {
     override suspend fun createUser(
         userDto: UserDto
     ) {
-        SupabaseClient
-            .client.from("users")
-            .insert(
-                CreateUserRequest(
-                    name = userDto.name,
-                    email = userDto.email,
-                    isAdmin = userDto.isAdmin
+        try {
+            println("Inserting user: $userDto")
+            SupabaseClient
+                .client.from("users")
+                .insert(
+                    CreateUserRequest(
+                        name = userDto.name,
+                        email = userDto.email,
+                        isAdmin = userDto.isAdmin
+                    )
                 )
-            )
+            println("Insert completed successfully")
+        }catch (t: Throwable){
+            println("error is ${t.message}")
+            throw t
+        }
     }
 
     override suspend fun getAllUsers(): List<UserDto> {

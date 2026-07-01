@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000001487d2318, pid=23166, tid=129879
+#
+# JRE version: OpenJDK Runtime Environment Corretto-21.0.11.10.1 (21.0.11+10) (build 21.0.11+10-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Corretto-21.0.11.10.1 (21.0.11+10-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, bsd-aarch64)
+# Problematic frame:
+# C  [libllvmstubs.dylib+0x1bee318]  llvm::BranchProbabilityInfo::calcZeroHeuristics(llvm::BasicBlock const*, llvm::TargetLibraryInfo const*)+0x260
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/corretto/corretto-21/issues/
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.xml/javax.xml.namespace=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED -XX:MaxMetaspaceSize=1g -Xmx8g -Dfile.encoding=UTF-8 -Duser.country=IN -Duser.language=en -Duser.variant -javaagent:/Users/nithin/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0/lib/agents/gradle-instrumentation-agent-9.1.0.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.1.0
+
+Host: "MacBookPro18,3" arm64, 8 cores, 16G, Darwin 25.5.0, macOS 26.5.1 (25F80)
+Time: Sat Jun 27 12:55:07 2026 IST elapsed time: 6063.953896 seconds (0d 1h 41m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000b68b0a300):  JavaThread "Execution worker" [_thread_in_native, id=129879, stack(0x0000000302b00000,0x0000000302d03000) (2060K)]
+
+Stack: [0x0000000302b00000,0x0000000302d03000],  sp=0x0000000302cf9120,  free space=2020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libllvmstubs.dylib+0x1bee318]  llvm::BranchProbabilityInfo::calcZeroHeuristics(llvm::BasicBlock const*, llvm::TargetLibraryInfo const*)+0x260
+C  [libllvmstubs.dylib+0x1bf0144]  llvm::BranchProbabilityInfo::calculate(llvm::Function const&, llvm::LoopInfo const&, llvm::TargetLibraryInfo const*, llvm::DominatorTree*, llvm::PostDominatorTree*)+0x42c
