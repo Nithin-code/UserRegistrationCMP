@@ -5,18 +5,16 @@ import com.nithin.feature.user.domain.model.User
 
 fun UserDto.toUser(): User {
     return User(
-        id = id,
+        id = "",
         name = name,
         email = email,
         isAdmin = isAdmin,
-        createdAt = createdAt
+        createdAt = ""
     )
 }
 
 fun User.toUserDto() = UserDto(
-    id = id,
     name = name,
     email = email,
     isAdmin = isAdmin,
-    createdAt = createdAt
 )

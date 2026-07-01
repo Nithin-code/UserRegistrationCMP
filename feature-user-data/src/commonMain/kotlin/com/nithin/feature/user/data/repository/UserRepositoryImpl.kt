@@ -15,6 +15,7 @@ class UserRepositoryImpl(
             userRemoteDataSource.createUser(user.toUserDto())
             AppResult.Success(user)
         } catch (e: Throwable) {
+            e.printStackTrace()
             AppResult.Error(e.message ?: "Unknown error occurred")
         }
     }
