@@ -1,5 +1,8 @@
 package com.nithin.userregisterationcmp.di
 
+import com.nithin.feature.auth.data.di.authDataModule
+import com.nithin.feature.auth.domain.di.authDomainModule
+import com.nithin.feature.auth.presentation.di.authPresentationModule
 import com.nithin.feature.user.data.di.dataModule
 import com.nithin.feature.user.domain.di.domainModule
 import com.nithin.feature.user.presentation.di.presentationModule
@@ -12,6 +15,7 @@ object KoinInitializerWrapper{
         startKoin {
             config?.invoke(this)
             modules( dataModule, domainModule, presentationModule)
+            modules(authDataModule, authDomainModule, authPresentationModule)
         }
     }
 }
