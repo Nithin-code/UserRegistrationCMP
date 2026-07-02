@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.nithin.feature.auth.presentation.screens.LoginScreenRoute
 import com.nithin.feature.user.presentation.screens.AddUserScreen
 import org.jetbrains.compose.resources.painterResource
 
@@ -24,6 +25,8 @@ import userregistrationcmp.shared.generated.resources.compose_multiplatform
 @Preview
 fun App() {
     MaterialTheme {
-        AddUserScreen()
+        LoginScreenRoute(
+            onSuccess = {}
+        )
     }
 }

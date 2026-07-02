@@ -73,6 +73,9 @@ kotlin {
             implementation(projects.featureUserDomain)
             implementation(projects.featureUserData)
             implementation(projects.featureUserPresentation)
+            implementation(projects.featureAuthData)
+            implementation(projects.featureAuthDomain)
+            implementation(projects.featureAuthPresentation)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
